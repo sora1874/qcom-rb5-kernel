@@ -28,8 +28,8 @@ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=build qcom/${KERNEL_DTB}
 # cp -v build/arch/arm64/boot/Image deploy/
 cp -v build/arch/arm64/boot/Image.gz deploy/
 cp -v build/arch/arm64/boot/dts/qcom/${KERNEL_DTB} deploy/
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=build modules_install INSTALL_MOD_PATH="${WORKDIR}/kernel/deploy/modules" INSTALL_MOD_STRIP=1
-tar --xform s:'^./':: -czf deploy/kmods.tar.gz -C "${WORKDIR}/kernel/deploy/modules" .
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=build modules_install INSTALL_MOD_PATH="${WORKDIR}/deploy/modules" INSTALL_MOD_STRIP=1
+tar --xform s:'^./':: -czf deploy/kmods.tar.gz -C "${WORKDIR}/deploy/modules" .
 # mkimage -A arm -O linux -T script -C none -a 0 -e 0 -d ${WORKDIR}/config/rk356x.bootscript deploy/boot.scr
 # cd "${WORKDIR}"
 
