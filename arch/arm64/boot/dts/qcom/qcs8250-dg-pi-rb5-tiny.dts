@@ -37,19 +37,6 @@
 		regulator-always-on;
 	};
 
-	leds {
-		compatible = "gpio-leds";
-
-		led-user4 {
-			label = "green:user4";
-			function = LED_FUNCTION_INDICATOR;
-			color = <LED_COLOR_ID_GREEN>;
-			gpios = <&pm8150_gpios 10 GPIO_ACTIVE_HIGH>;
-			default-state = "off";
-			panic-indicator;
-		};
-	};
-
 	thermal-zones {
 		conn-thermal {
 			polling-delay-passive = <0>;
@@ -483,10 +470,6 @@
 	};
 };
 
-&mdss {
-	status = "okay";
-};
-
 &pm8150_adc {
 	channel@4c {
 		reg = <ADC5_XO_THERM_100K_PU>;
@@ -629,17 +612,12 @@
 	status = "okay";
 };
 
-&lpass_tlmm {
-	status = "disabled";
-};
-
 &uart12 {
 	status = "okay";
 };
 
 &ufs_mem_hc {
 	status = "okay";
-
 	vcc-supply = <&vreg_l17a_3p0>;
 	vcc-max-microamp = <800000>;
 	vccq-supply = <&vreg_l6a_1p2>;
@@ -650,7 +628,6 @@
 
 &ufs_mem_phy {
 	status = "okay";
-	
 	vdda-phy-supply = <&vreg_l5a_0p88>;
 	vdda-pll-supply = <&vreg_l9a_1p2>;
 };

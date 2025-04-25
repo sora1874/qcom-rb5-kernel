@@ -108,6 +108,8 @@ dtb-$(CONFIG_ARCH_QCOM) += \
 	qcs404-evb-1000.dtb \
 	qcs404-evb-4000.dtb \
 	qcs6490-rb3gen2.dtb \
+	qcs8250-dg-pi-rb5-pro.dtb \
+	qcs8250-dg-pi-rb5-tiny.dtb \
 	qcs8550-aim300-aiot.dtb \
 	qdu1000-idp.dtb \
 	qrb2210-rb1.dtb \

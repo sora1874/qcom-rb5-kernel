@@ -30,13 +30,13 @@ cp -v build/arch/arm64/boot/Image.gz deploy/
 cp -v build/arch/arm64/boot/dts/qcom/${KERNEL_DTB} deploy/
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=build modules_install INSTALL_MOD_PATH="${WORKDIR}/deploy/modules" INSTALL_MOD_STRIP=1
 tar --xform s:'^./':: -czf deploy/kmods.tar.gz -C "${WORKDIR}/deploy/modules" .
-cd "${WORKDIR}"
+# mkimage -A arm -O linux -T script -C none -a 0 -e 0 -d ${WORKDIR}/config/rk356x.bootscript deploy/boot.scr
+# cd "${WORKDIR}"
 
-#cat ./Image.gz ./qrb5165-rb5.dtb > Image.gz+dtb
-#mkbootimg --kernel Image.gz+dtb \
-#              --ramdisk initrd.img \
-#              --output boot-rb5.img \
-#              --pagesize 4096 \
-#              --base 0x80000000 \
-#              --cmdline "root=PARTLABEL=rootfs console=tty0 console=ttyMSM0,1500000n8 pcie_pme=nomsi"
-
+# cat ./Image.gz ./qrb5165-rb5.dtb > Image.gz+dtb
+# mkbootimg --kernel Image.gz+dtb \
+#               --ramdisk initrd.img \
+#               --output boot-rb5.img \
+#               --pagesize 4096 \
+#               --base 0x80000000 \
+#               --cmdline "root=PARTLABEL=rootfs console=tty0 console=ttyMSM0,1500000n8 pcie_pme=nomsi"
